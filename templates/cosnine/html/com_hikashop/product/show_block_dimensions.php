@@ -25,7 +25,7 @@ if(isset($this->element->main)){
 if ($this->config->get('weight_display', 0)) {
 	if(isset($this->element->product_weight) && bccomp($this->element->product_weight,0,3)){ ?>
 		<span id="hikashop_product_weight_main" class="hikashop_product_weight_main">
-			<?php echo JText::_('PRODUCT_WEIGHT').': '.rtrim(rtrim($this->element->product_weight,'0'),',.').' '.JText::_($this->element->product_weight_unit); ?><br />
+			<span class="left"><?php echo JText::_('PRODUCT_WEIGHT').': </span>'.rtrim(rtrim($this->element->product_weight,'0'),',.').' '.JText::_($this->element->product_weight_unit); ?><br />
 		</span>
 	<?php
 	}
@@ -34,21 +34,21 @@ if ($this->config->get('weight_display', 0)) {
 if ($this->config->get('dimensions_display', 0) && bccomp($this->element->product_width, 0, 3)) {
 ?>
 	<span id="hikashop_product_width_main" class="hikashop_product_width_main">
-		<?php echo JText::_('PRODUCT_WIDTH').': '.rtrim(rtrim($this->element->product_width,'0'),',.').' '.JText::_($this->element->product_dimension_unit); ?><br />
+		<span class="left"><?php echo JText::_('PRODUCT_WIDTH').': </span>'.rtrim(rtrim($this->element->product_width,'0'),',.').' '.JText::_($this->element->product_dimension_unit); ?><br />
 	</span>
 <?php
 }
 if ($this->config->get('dimensions_display', 0) && bccomp($this->element->product_length, 0, 3)) {
 ?>
 	<span id="hikashop_product_length_main" class="hikashop_product_length_main">
-		<?php echo JText::_('PRODUCT_LENGTH').': '.rtrim(rtrim($this->element->product_length,'0'),',.').' '.JText::_($this->element->product_dimension_unit); ?><br />
+		<span class="left"><?php echo JText::_('PRODUCT_LENGTH').': </span>'.rtrim(rtrim($this->element->product_length,'0'),',.').' '.JText::_($this->element->product_dimension_unit); ?><br />
 	</span>
 <?php
 }
 if ($this->config->get('dimensions_display', 0) && bccomp($this->element->product_height, 0, 3)) {
 ?>
 	<span id="hikashop_product_height_main" class="hikashop_product_height_main">
-		<?php echo JText::_('PRODUCT_HEIGHT').': '.rtrim(rtrim($this->element->product_height,'0'),',.').' '.JText::_($this->element->product_dimension_unit); ?><br />
+		<span class="left"><?php echo JText::_('PRODUCT_HEIGHT').': </span>'.rtrim(rtrim($this->element->product_height,'0'),',.').' '.JText::_($this->element->product_dimension_unit); ?><br />
 	</span>
 <?php
 }
@@ -62,7 +62,7 @@ if($this->config->get('manufacturer_display', 0) && !empty($this->element->produ
 			$Itemid = $menuClass->loadAMenuItemId('','');
 		}
 		$categoryClass->addAlias($manufacturer);
-		echo JText::_('MANUFACTURER').': '.'<a href="'.hikashop_contentLink('category&task=listing&cid='.$manufacturer->category_id.'&name='.$manufacturer->alias.'&Itemid='.$Itemid,$manufacturer).'">'.$manufacturer->category_name.'</a>';
+		echo '<span class="left">'.JText::_('MANUFACTURER').': </span>'.'<a href="'.hikashop_contentLink('category&task=listing&cid='.$manufacturer->category_id.'&name='.$manufacturer->alias.'&Itemid='.$Itemid,$manufacturer).'">'.$manufacturer->category_name.'</a>';
 		echo "<span style='display:none;' itemprop='brand'>". $manufacturer->category_name ."</span>";
 	}
 }

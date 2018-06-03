@@ -170,7 +170,7 @@ if(isset($this->row->product_msrp) && @$this->row->product_msrp > 0.0 && hikaInp
 				if($price->price_min_quantity>1){
 					echo '<span class="hikashop_product_price_per_unit_x">'.JText::sprintf('PER_UNIT_AT_LEAST_X_BOUGHT',$price->price_min_quantity).'</span>';
 				}else{
-					echo '<span class="hikashop_product_price_per_unit">'.JText::_('PER_UNIT').'</span>';
+					//echo '<span class="hikashop_product_price_per_unit">'.JText::_('PER_UNIT').'</span>';
 				}
 			}
 			if($this->params->get('show_price_weight')){

@@ -94,47 +94,81 @@ if($this->params->get('characteristic_display') == 'list') {
 	$this->setLayout('show_block_characteristic');
 	echo $this->loadTemplate();
 }
+?>
+<div id="hikashop_product_bottom_part" class="hikashop_product_bottom_part">
 
-if($this->productlayout != 'show_tabular') {
-	$enable_status_vote = $this->config->get('enable_status_vote', '');
-	if(in_array($enable_status_vote, array('comment', 'two', 'both'))) {
-?>
-	<form action="<?php echo hikashop_currentURL() ?>" method="post" name="adminForm_hikashop_comment_form" id="hikashop_comment_form">
-		<div id="hikashop_vote_listing" data-votetype="product" class="hikashop_product_vote_listing">
-<?php
-		if($this->params->get('show_vote_product')) {
-			$js = '';
-			if(isset($this->element->main)) {
-				$product_id = $this->element->main->product_id;
-			} else {
-				$product_id = $this->element->product_id;
-			}
-			$this->params->set('product_id',$product_id);
-			echo hikashop_getLayout('vote', 'listing', $this->params, $js);
-?>
-		</div>
-		<div id="hikashop_vote_form" data-votetype="product" class="hikashop_product_vote_form">
-<?php
-			$js = '';
-			if(isset($this->element->main)) {
-				$product_id = $this->element->main->product_id;
-			} else {
-				$product_id = $this->element->product_id;
-			}
-			$this->params->set('product_id',$product_id);
-			echo hikashop_getLayout('vote', 'form', $this->params, $js);
-		}
-?>
-		</div>
-		<input type="hidden" name="add" value="1"/>
-		<input type="hidden" name="ctrl" value="product"/>
-		<input type="hidden" name="task" value="show"/>
-		<input type="hidden" name="return_url" value="<?php echo urlencode(base64_encode(urldecode($this->redirect_url))); ?>"/>
-	</form>
-<?php
-	}
-}
+    <ul class="nav nav-pills nav-detail">
+        <li class="active"><a data-toggle="pill" href="#desc">Product Description</a></li>
+        <li><a data-toggle="pill" href="#review"> Review </a></li>
+    </ul>
+    <div class="tab-content tab-detail">
+        <div id="desc" class="tab-pane fade in active">             
+            <?php if(!empty($this->element->extraData->bottomBegin)) { echo implode("\r\n",$this->element->extraData->bottomBegin); } ?>
+            
+            	<div id="hikashop_product_description_main" class="hikashop_product_description_main" itemprop="description"><?php
+            		echo JHTML::_('content.prepare',preg_replace('#<hr *id="system-readmore" */>#i','',$this->element->product_description));
+            	?></div>
+            	<span id="hikashop_product_url_main" class="hikashop_product_url_main"><?php
+            		if(!empty($this->element->product_url)) {
+            			echo JText::sprintf('MANUFACTURER_URL', '<a href="' . $this->element->product_url . '" target="_blank">' . $this->element->product_url . '</a>');
+            		}
+            	?></span>
+            
+            <?php
+            	$this->setLayout('show_block_product_files');
+            	echo $this->loadTemplate();
+            ?>
+            
+            <?php if(!empty($this->element->extraData->bottomMiddle)) { echo implode("\r\n",$this->element->extraData->bottomMiddle); } ?>
+            <?php if(!empty($this->element->extraData->bottomEnd)) { echo implode("\r\n",$this->element->extraData->bottomEnd); } ?>
+        </div>
+        <div id="review" class="tab-pane fade">
+            <?php
+            if($this->productlayout != 'show_tabular') {
+            	$enable_status_vote = $this->config->get('enable_status_vote', '');
+            	if(in_array($enable_status_vote, array('comment', 'two', 'both'))) {
+            ?>
+            	<form action="<?php echo hikashop_currentURL() ?>" method="post" name="adminForm_hikashop_comment_form" id="hikashop_comment_form">
+            		<div id="hikashop_vote_listing" data-votetype="product" class="hikashop_product_vote_listing">
+            <?php
+            		if($this->params->get('show_vote_product')) {
+            			$js = '';
+            			if(isset($this->element->main)) {
+            				$product_id = $this->element->main->product_id;
+            			} else {
+            				$product_id = $this->element->product_id;
+            			}
+            			$this->params->set('product_id',$product_id);
+            			echo hikashop_getLayout('vote', 'listing', $this->params, $js);
+            ?>
+            		</div>
+            		<div id="hikashop_vote_form" data-votetype="product" class="hikashop_product_vote_form">
+            <?php
+            			$js = '';
+            			if(isset($this->element->main)) {
+            				$product_id = $this->element->main->product_id;
+            			} else {
+            				$product_id = $this->element->product_id;
+            			}
+            			$this->params->set('product_id',$product_id);
+            			echo hikashop_getLayout('vote', 'form', $this->params, $js);
+            		}
+            ?>
+            		</div>
+            		<input type="hidden" name="add" value="1"/>
+            		<input type="hidden" name="ctrl" value="product"/>
+            		<input type="hidden" name="task" value="show"/>
+            		<input type="hidden" name="return_url" value="<?php echo urlencode(base64_encode(urldecode($this->redirect_url))); ?>"/>
+            	</form>
+            <?php
+            	}
+            }
+            ?>
+        </div>
+    </div>
+</div>
 
+<?php
 $contact = $this->config->get('product_contact',0);
 
 if(empty($this->element->variants) || $this->params->get('characteristic_display') == 'list') {

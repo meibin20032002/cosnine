@@ -29,7 +29,7 @@ table {
 table td{
 	text-align:left;
 	vertical-align:top;
-	padding: 5px;
+	padding: 5px 0;
 }
 .clear{
 	clear: both;
@@ -356,6 +356,8 @@ b, strong, .bold{
     background-color: rgb(17, 17, 17);
     padding: 20px 0;
     color: #fff;
+    font-family: 'Open Sans Condensed',sans-serif;
+    letter-spacing: 3px;
 }
 .main-product{
     background-color: #fff;
@@ -369,12 +371,37 @@ b, strong, .bold{
 .hikashop_product_name a{
     color: #fff;
 }
+.hikabtn{
+    border: none;
+    border-radius: 0;
+    margin-bottom: 15px;
+    padding: 8px 25px 
+}
+.hikabtn span{
+    position: relative;
+    display: inline-block;
+    left: -12px;
+}
 a.hikacart{
     color: #fff;
     background-color: #000;
-    border-color: #fff;
-    margin-bottom: 20px;
-    border-radius: 0;
+    border: 1px solid #fff;
+}
+.hikacart span:after{
+    content: "\f07a";
+    font-family: FontAwesome;
+    position: absolute;
+    right: -24px;
+    top: -2px;
+    font-size: 16px;
+}
+.hikawishlist span:after{
+    content: "\f08a";
+    font-family: FontAwesome;
+    position: absolute;
+    right: -24px;
+    top: -2px;
+    font-size: 16px;
 }
 a.hikacart:hover, a.hikacart:focus {
     color: #fff;
@@ -410,9 +437,7 @@ div.icon-wrapper div.icon a span.hkIcon{
 div.icon-wrapper div.icon a span{
     line-height: 18px;
 }
-.hikabtn{
-    border: none;
-}
+
 /*------contact-us----------*/
 .contact-us{
     text-align: center;
@@ -460,12 +485,15 @@ div.icon-wrapper div.icon a span{
 
 }
 #userForm .desc{
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     margin: 30px 0;
     font-size: 16px;
 }
 #userForm .fa{
     padding-left: 10px;
+}
+/*------Products----------*/
+.thumbnail{
+    border: none; 
 }
 /*------Product detail----------*/
 .hikashop_product_main_image_subdiv img{
@@ -478,9 +506,304 @@ div.icon-wrapper div.icon a span{
     font-weight: normal;
     font-size: 20px;
     color: #121212;
-    font-family: "Roboto","NanumGothic";
     margin: 0;
 }
+.hikashop_product_price_main .hikashop_product_price {
+    line-height: 30px;
+    font-size: 26px;
+    padding: 10px 0;
+    display: inline-block;
+}
+.detail-quantity {
+    padding-top: 3px;
+    margin-bottom: 15px;
+}
+.hikashop_product_right_part .left{
+   width: 100px; 
+   float: left;
+}
+.hikashop_product_right_part .right {
+    display: inline-block;
+}
+.detail-quantity .hikashop_product_quantity_field {
+    text-align: center;
+    border: 1px solid #dadada;
+    margin: 0px 5px;
+}
+/*--------Custom field---------*/
+.hikashop_product_custom_item_info_table td:nth-child(1), 
+.hikashop_product_characteristics_table td:nth-child(1){
+    width: 100px;
+    line-height: 26px;
+}
+.hikashop_product_characteristics_table td,
+.hikashop_product_custom_item_info_table td{
+    padding: 10px 0;
+}
+.hikashop_product_characteristics_table select, 
+.hikashop_product_custom_item_info_table input {
+    padding: 3px 0;
+    border: 1px solid #dadada;
+}
+
+/*------Tabs---------*/
+.nav-detail {
+    border-bottom: 1px solid #d5dbdf;
+}
+.nav-detail a {
+    color: #797979 !important;
+    font-size: 17px !important;
+    background: none !important;
+    margin-right: 32px !important;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    border-radius: 0px !important;
+    display: inline-block !important;
+    padding-bottom: 15px !important;
+}
+
+.nav-detail a:hover, .nav-detail a:focus, .nav-detail li.active a {
+    background: none !important;
+    color: #262b46 !important;
+    border-bottom: 2px solid #e44261;
+}
+
+.nav-detail li.active a {
+    border-bottom: 2px solid #e44261;
+}
+
+.navbar-menu-desktop ul#megamenu>li {
+    display: inline-block !important;
+}
+
+.tab-detail div.tab-pane {
+    padding-top: 0;
+    padding-bottom: 40px;
+}
+
+.tab-detail p {
+    font-size: 16px;
+    color: #60626e;
+    line-height: 26px;
+}
+
+.tab-detail ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+.tab-detail ul li {
+    list-style: none;
+}
+
+.tab-detail ul li:before {
+    content: "\f111";
+    font-size: 8px;
+    font-family: "FontAwesome";
+    color: #a9a9a9;
+    padding-right: 5px;
+}
+
+.tab-detail .hikashop_product_files_main {
+    margin-top: 25px;
+}
+
+.tab-detail .hikashop_product_files_main a {
+    padding: 20px;
+    background: #f7f7f7;
+    color: #60626e;
+    font-size: 17px;
+    width: 375px;
+    display: inline-block;
+    margin-right: 15px;
+    text-decoration: none !important;
+}
+
+.tab-detail .hikashop_product_files_main a i {
+    font-size: 30px;
+    color: #bfc3db;
+    padding-right: 20px;
+}
+
+.tab-detail .hikashop_product_files_main a span {
+    vertical-align: top;
+}
+
+.filter-comment {
+    padding: 10px 15px;
+    background: #f9f9f8;
+    margin-top: 33px;
+}
+
+.filter-comment span {
+    font-size: 14px;
+    color: #60626e;
+}
+
+.filter-comment select {
+    padding: 10px 15px;
+    font-size: 14px;
+    color: #60626e;
+    border: 1px solid #e5e5e5;
+    margin-left: 20px;
+}
+.hikashop_vote_stars{
+    padding: 0;
+    line-height: 14px;
+    display: inline-block;
+}
+.item-comment {
+    padding: 20px 0px;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.item-comment h4 {
+    font-size: 19px;
+    color: #262b46;
+    margin: 0px;
+    padding: 0px;
+    line-height: 24px;
+}
+
+.item-comment p {
+    font-size: 16px;
+    color: #60626e;
+}
+
+.item-comment p.date {
+    font-size: 13px;
+    color: #a9a9a9;
+    font-style: italic;
+}
+.tab-detail .pagination,.tab-detail .easyPaginateNav {
+    display: block;
+    text-align: center;
+    width: 100% !important;
+    margin-top: 30px;
+}
+
+.tab-detail .pagination li,.tab-detail .easyPaginateNav a {
+    list-style: none;
+    display: inline-block;
+    padding: 0px 10px;
+}
+
+.tab-detail .pagination li:before {
+    content: "";
+}
+
+.tab-detail .pagination li a,.tab-detail .easyPaginateNav a {
+    font-size: 16px;
+    color: #a9a9a9;
+}
+
+.tab-detail .pagination li:first-child, .tab-detail .pagination li:last-child,.tab-detail .easyPaginateNav a.first,.tab-detail .easyPaginateNav a.last {
+    display: none;
+}
+
+.tab-detail .pagination li.active a, .tab-detail .pagination li a:hover,.tab-detail .easyPaginateNav a:hover,.tab-detail .easyPaginateNav a.current {
+    color: #60626e;
+    text-decoration: underline;
+}
+
+.tab-detail .pagination li .icon-previous, .tab-detail .easyPaginateNav a.prev {
+    background: url(../images/paging-pre.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 33px;
+    height: 33px;
+    display: inline-block;
+    vertical-align: middle;
+    text-indent: 1000px;
+    overflow:hidden;
+}
+.tab-detail .iteml{
+    padding-bottom: 20px;
+}
+
+.tab-detail input, .tab-detail textarea {
+    width: 100%;
+    border: 1px solid #d9d9d9;
+    color: #8F8F91;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+}
+
+.tab-detail .pagination li .icon-next,.tab-detail .easyPaginateNav a.next {
+    background: url(../images/paging-next.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 33px;
+    height: 33px;
+    display: inline-block;
+    vertical-align: middle;
+    text-indent: -1000px;
+    overflow:hidden;
+}
+
+.info-commment .review-rate {
+    float: left;
+    width: 20%;
+}
+
+.info-commment .review-rate .score {
+    float: left;
+    font-size: 26px;
+    color: #262b46;
+}
+
+.info-commment .review-rate .rate {
+    float: left;
+    margin-left: 20px;
+    position: relative;
+    top: 3px;
+}
+
+.info-commment .review-rate .num-review {
+    font-size: 14px;
+    color: #60626e;
+}
+
+.info-commment .show-progress .item {
+    position: relative;
+}
+
+.info-commment .show-progress {
+    float: left;
+    width: 50%;
+}
+
+.info-commment .show-progress .name {
+    display: table;
+    float: left;
+    width: 128px;
+    font-size: 14px;
+    color: #262b46;
+}
+
+.info-commment .show-progress .progress {
+    display: table;
+    width: 187px;
+    height: 12px;
+    border-radius: 0px;
+    background: #efefef;
+    box-shadow: none;
+    margin-bottom: 14px;
+}
+
+.info-commment .show-progress .progress-bar {
+    background: #fbaf5d;
+    box-shadow: none;
+}
+
+.info-commment .show-progress .item span {
+    position: absolute;
+    left: 333px;
+    font-size: 13px;
+    color: #262b46;
+    top: -3px;
+}
+
 /*------Event----------*/
 .item{
     padding-bottom: 20px;
@@ -500,7 +823,6 @@ div.icon-wrapper div.icon a span{
     font-size: 20px;
     color: #000;
     margin-bottom: 5px;
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     margin-top: 0;
     line-height: 25px;
 }
@@ -509,7 +831,6 @@ div.icon-wrapper div.icon a span{
     color: #fff;
     padding: 5px 10px;
     font-size: 14px;
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     border-radius: 5px;
 }
 /*------login----------*/
@@ -526,7 +847,6 @@ div.icon-wrapper div.icon a span{
     margin: 0 0 15px 0;
     padding-bottom: 5px;
     text-align: left;
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     text-transform: uppercase;
     color: #2e2e2e;
 }

@@ -74,7 +74,7 @@ defined('_JEXEC') or die('Restricted access');
 <?php
 	}
 ?>
-		</span>
+		</span><br />
 
 <?php if(!empty($this->element->extraData->rightMiddle)) { echo implode("\r\n",$this->element->extraData->rightMiddle); } ?>
 
@@ -82,13 +82,11 @@ defined('_JEXEC') or die('Restricted access');
 	$this->setLayout('show_block_dimensions');
 	echo $this->loadTemplate();
 ?>
-		<br />
 <?php
 	if($this->params->get('characteristic_display') != 'list') {
 		$this->setLayout('show_block_characteristic');
 		echo $this->loadTemplate();
 ?>
-		<br />
 <?php } ?>
 
 <?php
@@ -103,7 +101,6 @@ defined('_JEXEC') or die('Restricted access');
 			$this->setLayout('option');
 			echo $this->loadTemplate();
 		?></div>
-		<br />
 <?php
 		$form = ',\'hikashop_product_form\'';
 		if($this->config->get('redirect_url_after_add_cart', 'stay_if_cart') == 'ask_user') {
@@ -181,24 +178,3 @@ defined('_JEXEC') or die('Restricted access');
 </div>
 </div>
 
-<div id="hikashop_product_bottom_part" class="hikashop_product_bottom_part">
-
-<?php if(!empty($this->element->extraData->bottomBegin)) { echo implode("\r\n",$this->element->extraData->bottomBegin); } ?>
-
-	<div id="hikashop_product_description_main" class="hikashop_product_description_main" itemprop="description"><?php
-		echo JHTML::_('content.prepare',preg_replace('#<hr *id="system-readmore" */>#i','',$this->element->product_description));
-	?></div>
-	<span id="hikashop_product_url_main" class="hikashop_product_url_main"><?php
-		if(!empty($this->element->product_url)) {
-			echo JText::sprintf('MANUFACTURER_URL', '<a href="' . $this->element->product_url . '" target="_blank">' . $this->element->product_url . '</a>');
-		}
-	?></span>
-
-<?php
-	$this->setLayout('show_block_product_files');
-	echo $this->loadTemplate();
-?>
-
-<?php if(!empty($this->element->extraData->bottomMiddle)) { echo implode("\r\n",$this->element->extraData->bottomMiddle); } ?>
-<?php if(!empty($this->element->extraData->bottomEnd)) { echo implode("\r\n",$this->element->extraData->bottomEnd); } ?>
-</div>
