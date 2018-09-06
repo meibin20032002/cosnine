@@ -19,7 +19,7 @@ class plgSlogin_authFacebook extends JPlugin
     {
         $redirect = JURI::base().'?option=com_slogin&task=check&plugin=facebook';
 
-        $scope = 'email,user_photos,user_about_me,user_hometown,public_profile,user_birthday';
+        $scope = 'email,public_profile';
 
         if($this->params->get('repost_comments', 0))
         {
@@ -30,13 +30,12 @@ class plgSlogin_authFacebook extends JPlugin
         $params = array(
             'client_id=' . $this->params->get('id'),
             'redirect_uri=' . urlencode($redirect),
-            'scope=' . $scope,
-            'response_type=code'
+            'scope=' . $scope
         );
 
         $params = implode('&', $params);
 
-        $url = 'https://www.facebook.com/dialog/oauth?' . $params;
+        $url = 'https://www.facebook.com/v3.0/dialog/oauth?' . $params;
         return $url;
     }
 
@@ -62,7 +61,7 @@ class plgSlogin_authFacebook extends JPlugin
 // 			id, name, first_name, last_name, link, gender, timezone, locale, verified, updated_time
 // 			email смотреть параметр scope в методе auth()!
 
-            $ResponseUrl = 'https://graph.facebook.com/v2.2/me?access_token='.$token['access_token'].'&fields=id,name,first_name,last_name,link,gender,email,birthday';
+            $ResponseUrl = 'https://graph.facebook.com/v3.0/me?access_token='.$token['access_token'].'&fields=id,name,first_name,last_name,link,gender,email,birthday';
             $request = json_decode($controller->open_http($ResponseUrl));
 
             if(empty($request)){
@@ -98,12 +97,8 @@ class plgSlogin_authFacebook extends JPlugin
             return $returnRequest;
         }
         else{
-            $config = JComponentHelper::getParams('com_slogin');
-            JModel::addIncludePath(JPATH_ROOT.'/components/com_slogin/models');
-            $model = JModel::getInstance('Linking_user', 'SloginModel');
-            $redirect = base64_decode($model->getReturnURL($config, 'failure_redirect'));
-            $controller = JControllerLegacy::getInstance('SLogin');
-            $controller->displayRedirect($redirect, true);
+            echo 'Error - empty code';
+            exit;
         }
     }
 
@@ -124,9 +119,10 @@ class plgSlogin_authFacebook extends JPlugin
 
         $params = implode('&', $params);
 
-        $url = 'https://graph.facebook.com/oauth/access_token?' . $params;
+        $url = 'https://graph.facebook.com/v3.0/oauth/access_token?' . $params;
         $data = $controller->open_http($url);
-        parse_str($data, $data_array);
+        
+        $data_array = json_decode($data , true);
 
         if(empty($data_array['access_token'])){
             echo 'Error - empty access tocken';

@@ -89,7 +89,7 @@ if (is_object($menu))
 				</h1>
                 <div id="mainmenu">
 					<jdoc:include type="modules" name="mainmenu" style="none" />
-                </div> 
+                </div>  
             </div>  
         </div>  
     </div>  
@@ -106,10 +106,32 @@ if (is_object($menu))
                 <div class="scroller-inner">                    
                     <!-- Body -->
 				    <div class="body">
+                        <header id="topfix">
+                            <?php if($pageclass != 'home-page'):?>                        
+                            <div class="desktop">   
+                                <div class="container">  
+                                    <h1 class="logo">
+                                        <a href="<?php echo JUri::base()?>" title="PresalesNow">
+                                            <img src="<?php echo $params->get('logo') ?>" alt="PresalesNow"/>
+                                        </a>
+                                    </h1>                         
+                                    
+                                    <div class="navbar-menu">
+                                        <button type="button" class="navbar-toggle" id="trigger">
+                                            <span class="sr-only">Toggle navigation</span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                        </button>
+                                    </div>    
+                                </div>
+                            </div>
+                            <?php endif;?>
+                        </header>
+                        
                         <?php if($pageclass == 'home-page'):?>
                             <jdoc:include type="modules" name="banner" style="none" />   
-                        <?php else:?>
-                        <div class="topfix"></div>   
+                        <?php else:?>  
                         
                         <?php                             
                         if($task != 'show'):
@@ -121,7 +143,7 @@ if (is_object($menu))
                         endif;
                         
                         $bg = 'main-product';
-                        if($view == 'product' && $task == 'listing') $bg = 'main-content';
+                        if( ($view == 'product' || $view == 'category') && $task == 'listing') $bg = 'main-content';
                         ?>
                         
                         <div class="<?php echo $bg?>">                          
@@ -168,5 +190,24 @@ if (is_object($menu))
     </script>
     <div class="overlayUpload"><span class="loading"></span></div>
     <?php echo $params->get('before_body') ?>
+        
+<!-- Load Facebook SDK for JavaScript -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js#xfbml=1&version=v2.12&autoLogAppEvents=1';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<!-- Your customer chat code -->
+<div class="fb-customerchat"
+  attribution=setup_tool
+  page_id="120068488595838"
+  theme_color="#6699cc"
+  logged_in_greeting="Chào bạn, Cosnine có thể giúp gì cho bạn ạ ?"
+  logged_out_greeting="Chào bạn, Cosnine có thể giúp gì cho bạn ạ ?">
+</div>	
 </body>
 </html>

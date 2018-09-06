@@ -120,7 +120,7 @@ if(!empty($this->rows)) {
 		}
 
 		if($row_fluid == 12)
-			echo '<div class="row">';
+			echo '<div class="hk-row-fluid">';
 		else
 			echo '<div class="hk-row-fluid hk-row-'.$row_fluid.'">';
 
@@ -128,7 +128,7 @@ if(!empty($this->rows)) {
 
 		foreach($this->rows as $row) {
 ?>
-		<div class="hkc-md-<?php echo (int)$span; ?> hikashop_product hikashop_product_column_<?php echo $current_column; ?> hikashop_product_row_<?php echo $current_row; ?>">
+		<div class="hkc-md-<?php echo (int)$span; ?> hkc-xs-6 hikashop_product hikashop_product_column_<?php echo $current_column; ?> hikashop_product_row_<?php echo $current_row; ?>">
 			<div class="hikashop_container">
 				<div class="hikashop_subcontainer <?php echo $this->borderClass; ?>">
 <?php

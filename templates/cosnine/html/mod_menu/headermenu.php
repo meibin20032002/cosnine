@@ -87,17 +87,7 @@ if ($tagId = $params->get('tag_id', ''))
 	}
 }
 ?>
-    <li>
-        <span class="fa fa-heart"></span>
-        <?php
-        $document = JFactory::getDocument();
-        $renderer = $document->loadRenderer('modules');
-        $options = array('style' => 'xhtml');
-        $position = 'wishlist';
-        echo $renderer->render($position, $options, null);
-        ?>
-    </li>
-    
+
     <li>
         <span class="fa fa-shopping-cart"></span>
         <?php
@@ -109,12 +99,12 @@ if ($tagId = $params->get('tag_id', ''))
         ?>
     </li>
     <li class="sns">
-        <a href="https://www.facebook.com/macqueenNY/" target="_blank">
+        <a href="https://www.facebook.com/JunyBox/" target="_blank">
             <i class="fa fa-facebook" aria-hidden="true"></i>
         </a>
     </li>
     <li class="sns">
-        <a href="https://www.instagram.com/macqueen_newyork/" target="_blank">
+        <a href="https://www.instagram.com/cosninevietnam/" target="_blank">
             <i class="fa fa-instagram" aria-hidden="true"></i>
         </a>
     </li>

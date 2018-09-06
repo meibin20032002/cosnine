@@ -6,7 +6,6 @@ jQuery(document).ready(function ($) {
 	});
     function fixedMenu(){
         var fixed = $( "#headerlog" ).outerHeight() + $( "#header" ).outerHeight();
-        $(".topfix").css("height", fixed);
         
         if (window.matchMedia("screen and (max-width: 992px)").matches) {
 			$(".fixed").hide();
@@ -14,6 +13,7 @@ jQuery(document).ready(function ($) {
 		}else{
             $(".fixed").show();
             $(".desktop").hide();
+            $("#topfix").css("height", fixed);
 		}
     }
 });

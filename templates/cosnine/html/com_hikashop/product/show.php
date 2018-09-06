@@ -98,8 +98,8 @@ if($this->params->get('characteristic_display') == 'list') {
 <div id="hikashop_product_bottom_part" class="hikashop_product_bottom_part">
 
     <ul class="nav nav-pills nav-detail">
-        <li class="active"><a data-toggle="pill" href="#desc">Product Description</a></li>
-        <li><a data-toggle="pill" href="#review"> Review </a></li>
+        <li class="active"><a data-toggle="pill" href="#desc">Chi tiết sản phẩm</a></li>
+        <li><a data-toggle="pill" href="#review">Nhận xét </a></li>
     </ul>
     <div class="tab-content tab-detail">
         <div id="desc" class="tab-pane fade in active">             

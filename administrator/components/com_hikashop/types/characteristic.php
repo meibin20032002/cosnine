@@ -211,6 +211,7 @@ function hikashopUpdateVariantData(selection) {
 												$doc->addScriptDeclaration("\n<!--\n".$js."\n//-->\n");
 												$switch_done = true;
 											}
+                                            $value->characteristic_value = $variant->variant_name;
 										}
 									}
 								}
@@ -218,6 +219,7 @@ function hikashopUpdateVariantData(selection) {
 									continue;
 							}
 							$values[$k] = $value->characteristic_value;
+                            
 						}
 					}
 

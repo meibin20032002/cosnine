@@ -58,7 +58,7 @@ defined('_JEXEC') or die;
 								break;
 						endswitch;
 					}else {
-						echo '<a href="#">' . $item->title . '</a>';
+						require JModuleHelper::getLayoutPath('mod_menu', 'headermenu_heading');
 					}
 					// The next item is deeper.
 					if ($item->deeper) {

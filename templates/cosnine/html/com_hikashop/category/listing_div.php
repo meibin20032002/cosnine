@@ -195,7 +195,7 @@ if(!empty($this->rows)) {
 			$class = ($found == $row->category_id) ? ' hikashop_current_category' : '';
 			$class = ($current_parent_category == $row->category_id) ? ' hikashop_current_parent_category' : '';
 ?>
-			<div class="hkc-md-<?php echo (int)$span; ?> hikashop_category hikashop_category_column_<?php echo $current_column; ?> hikashop_category_row_<?php echo $current_row.$class; ?>">
+			<div class="hkc-md-<?php echo (int)$span; ?> hkc-xs-6 hikashop_category hikashop_category_column_<?php echo $current_column; ?> hikashop_category_row_<?php echo $current_row.$class; ?>">
 				<div class="hikashop_container">
 					<div class="hikashop_subcontainer <?php echo $borderClass; ?>">
 <?php

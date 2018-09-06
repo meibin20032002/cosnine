@@ -186,7 +186,7 @@ switch($quantityLayout) {
 	case 'show_default':
 ?>
 		<div class="detail-quantity">
-            <span class="left">Quantity: </span>
+            <span class="left"><?php echo JText::_('PRODUCT_QUANTITY')?>: </span>
             <span class="right">
                 <a class="hikashop_product_quantity_field_change_minus hikashop_product_quantity_field_change" href="#" data-hk-qty-mod="-1" onclick="return window.hikashop.updateQuantity(this, '<?php echo $id; ?>');">&ndash;</a>
                 <input id="<?php echo $id; ?>" type="text" value="<?php echo $current_quantity; ?>" onfocus="this.select()" class="hikashop_product_quantity_field" name="<?php echo $name; ?>" data-hk-qty-min="<?php echo $min_quantity; ?>" data-hk-qty-max="<?php echo $max_quantity; ?>" onchange="window.hikashop.checkQuantity(this);" />

@@ -78,27 +78,15 @@ if(!$this->module){
 		$this->fieldsClass->prefix = '';
 		foreach($this->fields as $fieldName => $oneExtraField) {
 			if(!empty($this->element->$fieldName)){ ?>
-			<tr class="hikashop_category_custom_<?php echo $oneExtraField->field_namekey;?>_line">
-				<td class="key">
-					<span id="hikashop_category_custom_name_<?php echo $oneExtraField->field_id;?>" class="hikashop_category_custom_name">
-						<?php echo $this->fieldsClass->getFieldName($oneExtraField);?>
-					</span>
-				</td>
-				<td>
-					<span id="hikashop_category_custom_value_<?php echo $oneExtraField->field_id;?>" class="hikashop_category_custom_value">
-						<?php echo $this->fieldsClass->show($oneExtraField,$this->element->$fieldName); ?>
-					</span>
-				</td>
-			</tr>
+			<div class="hikashop_category_custom_<?php echo $oneExtraField->field_namekey;?>_line">
+				<?php echo $this->fieldsClass->show($oneExtraField,$this->element->$fieldName); ?>
+			</div>
 		<?php }
 		}
 		$custom_fields_html = ob_get_clean();
 		if(!empty($custom_fields_html)){ ?>
 		<div id="hikashop_category_custom_info_main" class="hikashop_category_custom_info_main">
-			<h4><?php echo JText::_('CATEGORY_ADDITIONAL_INFORMATION');?></h4>
-			<table class="hikashop_category_custom_info_main_table">
-				<?php echo $custom_fields_html; ?>
-			</table>
+			<?php echo $custom_fields_html; ?>
 		</div>
 		<?php }
 	}
@@ -109,7 +97,7 @@ if(empty($layout_type) || $layout_type=='table') $layout_type = 'div';
 $html = $this->loadTemplate($layout_type);
 if(!empty($html)) echo '<div class="hikashop_subcategories_listing">'.$html.'</div>';
 
-if(!$this->module){
+if(!$this->module && $this->element->category_id !=10){
 	$data = $this->params->get('data');
 	if(isset($data->hk_product) && is_object($data->hk_product)){
 		$js = '';
@@ -146,3 +134,9 @@ if(!empty($html)){
 		<?php echo $html; ?>
 	</div>
 <?php }	?>
+<script>
+jQuery(document).ready(function($){
+    var full_image = jQuery('.hikashop_category_custom_full_image_line').html();
+    jQuery('#slide').html(full_image);
+});
+</script>
