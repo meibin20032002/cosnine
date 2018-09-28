@@ -99,12 +99,12 @@ if ($tagId = $params->get('tag_id', ''))
         ?>
     </li>
     <li class="sns">
-        <a href="https://www.facebook.com/JunyBox/" target="_blank">
+        <a href="https://www.facebook.com/Cosnine/" target="_blank">
             <i class="fa fa-facebook" aria-hidden="true"></i>
         </a>
     </li>
     <li class="sns">
-        <a href="https://www.instagram.com/cosninevietnam/" target="_blank">
+        <a href="https://www.instagram.com/Cosnine.Vietnam/" target="_blank">
             <i class="fa fa-instagram" aria-hidden="true"></i>
         </a>
     </li>

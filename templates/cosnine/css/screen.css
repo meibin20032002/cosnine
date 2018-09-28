@@ -60,6 +60,9 @@ a:hover, a:focus{
 b, strong, .bold{
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+.table, img, label {
+    max-width: 100%;
+}
 .nav>li>a:hover, .nav>li>a:focus{
     background: none;
 }
