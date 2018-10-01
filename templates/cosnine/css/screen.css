@@ -1144,6 +1144,53 @@ div.hikashop_messages{
     border: none;
     margin: 0px;
 }
+/*------hikashop_module ----------*/
+.hikashop_module .hikashop_products{
+    padding: 0
+}
+.hikashop_module h2{
+    font-size: 20px;
+}
+.hikashop_module  div.hikashop_container{
+    margin: 10px 0 !important;
+}
+/*------productSupport ----------*/
+.productSupport {
+    display: block;
+    margin-top: 20px;
+    padding: 10px 15px;
+    border: solid 1px #e1e1e1;
+    background: #f6f6f6;
+    margin-bottom: 20px;
+}
+.productSupport h5 {
+    color: #ed1c24;
+    font-size: 20px;
+    margin: 0;
+    line-height: 1.5;
+    font-weight: normal;
+}
+.productSupport a {
+    font-size: 18px;
+    font-weight: bold;
+    display: inline-block;
+    line-height: 1.5;
+}
+
+.pd_policy ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font-size: 15px;
+}
+.pd_policy ul li i {
+    margin-right: 10px;
+    width: 17px;
+    font-size: 17px;
+}
+img.hikashop_child_image{
+    height: 80px !important;
+}
 /*------footer----------*/
 .footer h4 {
     text-align: left;

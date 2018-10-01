@@ -175,6 +175,20 @@ defined('_JEXEC') or die('Restricted access');
 
 <?php if(!empty($this->element->extraData->rightEnd)) { echo implode("\r\n",$this->element->extraData->rightEnd); } ?>
 
+    <div class="productSupport">
+		<h5>
+			TƯ VẤN TỪ CHUYÊN VIÊN COSNINE:
+		</h5>
+		<a href="tel:02837059559">02837 059 559</a>
+	</div>
+    <div class="pd_policy">
+		<ul>
+			<li><i class="fa fa-truck" aria-hidden="true"></i> <span>Giao hàng trong 2 - 5 ngày</span></li>
+			<li><i class="fa fa-money" aria-hidden="true"></i> <span>Miễn phí giao hàng cho đơn hàng từ 300.000đ</span></li>
+			<li><i class="fa fa-refresh" aria-hidden="true"></i> <span>Đổi trả theo chính sách linh hoạt</span></li>
+		</ul>
+	</div>
+
 </div>
 </div>
 

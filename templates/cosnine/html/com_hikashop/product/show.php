@@ -95,7 +95,8 @@ if($this->params->get('characteristic_display') == 'list') {
 	echo $this->loadTemplate();
 }
 ?>
-<div id="hikashop_product_bottom_part" class="hikashop_product_bottom_part">
+<div class="row">
+<div id="hikashop_product_bottom_part" class="hikashop_product_bottom_part col-md-9">
 
     <ul class="nav nav-pills nav-detail">
         <li class="active"><a data-toggle="pill" href="#desc">Chi tiết sản phẩm</a></li>
@@ -166,8 +167,27 @@ if($this->params->get('characteristic_display') == 'list') {
             ?>
         </div>
     </div>
-</div>
 
+
+    <div class="hikashop_submodules col-md-3" id="hikashop_submodules">
+        <?php
+        	if(!empty ($this->modules) && is_array($this->modules)) {
+        		jimport('joomla.application.module.helper');
+        		foreach($this->modules as $module) {
+        			echo JModuleHelper::renderModule($module);
+        		}
+        	}
+        ?>
+        <?php
+            $document = JFactory::getDocument();
+            $renderer = $document->loadRenderer('modules');
+            $options = array('style' => 'xhtml');
+            $position = 'right-content';
+            echo $renderer->render($position, $options, null);            
+        ?> 
+    </div>
+</div>
+    
 <?php
 $contact = $this->config->get('product_contact',0);
 
@@ -415,16 +435,7 @@ $this->params->set('show_price_weight', 0);
 $this->product = $this->element;
 
 ?>
-	<div class="hikashop_submodules" id="hikashop_submodules" style="clear:both">
-<?php
-	if(!empty ($this->modules) && is_array($this->modules)) {
-		jimport('joomla.application.module.helper');
-		foreach($this->modules as $module) {
-			echo JModuleHelper::renderModule($module);
-		}
-	}
-?>
-	</div>
+	
 	<div class="hikashop_external_comments" id="hikashop_external_comments" style="clear:both">
 <?php
 if($this->config->get('comments_feature') == 'jcomments') {
