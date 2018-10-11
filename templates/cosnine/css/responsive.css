@@ -1,11 +1,66 @@
+@media screen and (max-width: 1024px){
+    .cd-title h2 span{
+        top: 50vh !important;
+    }
+}
 @media screen and (max-width: 992px){
-    ..velaMobileToggle {
+    .navbar-toggle {
         display: block;
+        margin-right: 5px;
+        padding: 5px 10px;
+    }
+    .navbar-toggle span {
+        background: #fff;
+    }
+    .mp-menu h2 i{
+        padding-right: 10px;
+    }
+    .navbar-menu{
+		position: absolute;
+        top: 35px;
+        right: 0;
+	}
+    .mp-menu .mp-level{
+        padding-top: 28px;
+    }
+    .mp-menu ul li > a {
+        color: #fff;
+    }
+    #headerlog .loginner .member >li{
+        padding: 0 2px;
     }
     /*****Home page ******/
-    
+    .desktop .logo{
+        margin-top: 28px;
+        margin-bottom: 0;
+    }
+    .desktop .logo img{
+        height: 60px;
+    }
+    #header{display: none;}
+    .projects-container .intro_logo{
+        top: 0;
+        margin-left: -50px;
+    }
+    .projects-container .intro_logo img{
+        width: 100px;
+    }
+    .cd-title{
+        top: 0 !important;
+        width: 100% !important;
+    }
+    .hikashop_product_description_main img{
+        width: 100%;
+    }
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 760px) {
+    #mainmenu{
+        display: none;
+    }
+    #headerlog .loginner .introlink {
+        display: none;
+    }
+    
     .login{
         margin: 20px auto 30px;
         padding: 30px 10px;
@@ -15,6 +70,10 @@
     }
     #userForm h2 {
         font-size: 30px;
+    }
+    .hikashop_checkout_cart td.hikashop_cart_product_name_value{
+        width: 100% !important;
+        text-align: right;
     }
 }
 

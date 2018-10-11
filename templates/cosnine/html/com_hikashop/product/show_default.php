@@ -177,9 +177,11 @@ defined('_JEXEC') or die('Restricted access');
 
     <div class="productSupport">
 		<h5>
-			TƯ VẤN TỪ CHUYÊN VIÊN COSNINE:
+			HOTLINE TƯ VẤN:
 		</h5>
-		<a href="tel:02837059559">02837 059 559</a>
+		<a href="tel:02837059559">02837059559 </a> 
+        <a href="tel:0837079551">- 0837079551 </a>
+        <a href="tel:0907124647">- 0907124647 </a>
 	</div>
     <div class="pd_policy">
 		<ul>
